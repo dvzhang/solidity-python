@@ -1,6 +1,7 @@
 from solcx import  compile_standard
 import json
 from web3 import Web3
+import os
 
 # import solcx
 # solcx.install_solc('0.6.0')
@@ -39,6 +40,8 @@ abi = json.loads(
 
 w3 = Web3(Web3.HTTPProvider("http://0.0.0.0:8545"))
 chain_id = 1337
+# my_address = os.getenv("MY_ADDRESS")
+# private_key = os.getenv("PRIVATE_KEY")
 my_address = "0x4A725C718b656e471Fe5603c5ce5159B2ebF429B"
 private_key = "c00047b3e60b1af5d62168f3c725679f17938c7da5a7b99adc27608e710f38d8"
 
