@@ -71,7 +71,7 @@ def test_can_pick_winner_correctly(lottery_contract):
     if network.show_active() not in LOCAL_BLOCKCHAIN_ENVIRONMENTS:
         pytest.skip()
 
-    account = get_account()
+    account = get_account() 
     lottery_contract.startLottery({"from": account})
     lottery_contract.enter(
         {"from": account, "value": lottery_contract.getEntranceFee()}
@@ -88,6 +88,7 @@ def test_can_pick_winner_correctly(lottery_contract):
     starting_balance_of_account = account.balance()
     balance_of_lottery = lottery_contract.balance()
     transaction = lottery_contract.endLottery({"from": account})
+    a = transaction.events
     request_id = transaction.events["RequestedRandomness"]["requestId"]
     STATIC_RNG = 777
     get_contract("vrf_coordinator").callBackWithRandomness(
